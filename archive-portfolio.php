@@ -50,6 +50,7 @@ add_action( 'genesis_entry_footer', 'genesis_entry_header_markup_open', 5 );
 add_action( 'genesis_entry_footer', 'genesis_entry_header_markup_close', 15 );
 add_action( 'genesis_entry_footer', 'genesis_do_post_title' );
 
-add_filter( 'genesis_pre_get_option_site_layout', '__genesis_return_full_width_content' );
+# make page full width
+#add_filter( 'genesis_pre_get_option_site_layout', '__genesis_return_full_width_content' );
 
 genesis();

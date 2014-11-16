@@ -44,16 +44,6 @@ remove_action( 'genesis_entry_footer', 'genesis_post_meta' );
 //* add post meta under the post meta header info
 add_action( 'genesis_entry_header', 'genesis_post_meta', 13 );
 
-
-# this places our info above the title because it has a lower priority of 9, default is 10
-#add_action('genesis_entry_header', 'genesis_post_info', 9);
-
-#remove_action('genesis_entry_header', 'genesis_do_post_title');
-
-// Remove the site description
-#remove_action ( 'genesis_site_description', 'genesis_seo_site_description' );
-
-
 // Filter the comments
 add_filter('genesis_title_comments', 'my_title_comments');
 
@@ -119,13 +109,12 @@ add_filter( 'portfolioposttype_args', 'be_portfolio_post_type_args' );
  *
  */
 function be_portfolio_query( $query ) {
-	if( $query->is_main_query() && !is_admin() && ( is_post_type_archive( 'portfolio' ) || is_tax( array( 'portfolio_category', 'portfolio_tag' ) ) ) ) {
-		$query->set( 'orderby', 'menu_order' );
-		$query->set( 'order', 'ASC' );
-	}
+  if( $query->is_main_query() && !is_admin() && ( is_post_type_archive( 'portfolio' ) || is_tax( array( 'portfolio_category', 'portfolio_tag' ) ) ) ) {
+    $query->set( 'orderby', 'menu_order' );
+    $query->set( 'order', 'ASC' );
+  }
 }
 add_action( 'pre_get_posts', 'be_portfolio_query' );
-
 
 /**
  * Remove Genesis widgets.
