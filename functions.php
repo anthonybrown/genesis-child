@@ -12,7 +12,7 @@ add_action( 'wp_enqueue_scripts', 'genesis_sample_google_fonts' );
 
 function genesis_sample_google_fonts()
 {
-  wp_enqueue_style( 'google-fonts', '//fonts.googleapis.com/css?family=Lato:700|Raleway:300', array(), CHILD_THEME_VERSION );
+  wp_enqueue_style( 'google-fonts', '//fonts.googleapis.com/css?family=Lato:700|Raleway:300,900', array(), CHILD_THEME_VERSION );
 }
 
 //* Add HTML5 markup structure
@@ -68,11 +68,11 @@ remove_action( 'genesis_entry_header', 'genesis_post_info', 12 );
 
 
 // Enqueue home.js script
-add_action( 'wp_enqueue_scripts', 'home' );
-function home()
-{
-  wp_enqueue_script( 'home', get_stylesheet_directory_uri() . '/js/home.js', array( 'jquery' ), '1.0', true );
-}
+//add_action( 'wp_enqueue_scripts', 'home' );
+//function home()
+//{
+//  wp_enqueue_script( 'home', get_stylesheet_directory_uri() . '/js/home.js', array( 'jquery' ), '1.0', true );
+//}
 
 
 // Enqueue To Top script
@@ -90,13 +90,6 @@ function genesis_to_top()
     echo '<a href="#0" class="to-top" title="Back To Top">Top</a>';
 }
 
-//* Customize the entire footer
-remove_action( 'genesis_footer', 'genesis_do_footer' );
-
-add_action( 'genesis_footer', 'sp_custom_footer' );
-function sp_custom_footer() {
-	echo '<p>Pro Audio Distribution. All rights reserverd Copyright &copy; 2014</p>';
-}
 
 /**
  * Portfolio Template for Taxonomies
@@ -145,3 +138,11 @@ function ea_remove_genesis_widgets() {
     unregister_widget( 'Genesis_User_Profile_Widget' );
 }
 add_action( 'widgets_init', 'ea_remove_genesis_widgets', 20 );
+
+//* Customize the entire footer
+remove_action( 'genesis_footer', 'genesis_do_footer' );
+
+add_action( 'genesis_footer', 'sp_custom_footer' );
+function sp_custom_footer() {
+	echo '<p>Pro Audio Distribution. All rights reserverd Copyright &copy; 2014</p>';
+}
