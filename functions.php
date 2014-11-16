@@ -67,6 +67,12 @@ function my_title_comments()
 remove_action( 'genesis_entry_header', 'genesis_post_info', 12 );
 
 
+// Enqueue home.js script
+add_action( 'wp_enqueue_scripts', 'home' );
+function home()
+{
+  wp_enqueue_script( 'home', get_stylesheet_directory_uri() . '/js/home.js', array( 'jquery' ), '1.0', true );
+}
 
 
 // Enqueue To Top script
@@ -92,3 +98,50 @@ function sp_custom_footer() {
 	echo '<p>Pro Audio Distribution. All rights reserverd Copyright &copy; 2014</p>';
 }
 
+/**
+ * Portfolio Template for Taxonomies
+ *
+ */
+function be_portfolio_template( $template ) {
+  if( is_tax( array( 'portfolio_category', 'portfolio_tag' ) ) )
+    $template = get_query_template( 'archive-portfolio' );
+  return $template;
+}
+add_filter( 'template_include', 'be_portfolio_template' );
+
+/**
+ * Add 'page-attributes' to Portfolio Post Type
+ *
+ * @param array $args, arguments passed to register_post_type
+ * @return array $args
+ */
+function be_portfolio_post_type_args( $args ) {
+	$args['supports'][] = 'page-attributes';
+	return $args;
+}
+add_filter( 'portfolioposttype_args', 'be_portfolio_post_type_args' );
+
+/**
+ * Sort projects by menu order
+ *
+ */
+function be_portfolio_query( $query ) {
+	if( $query->is_main_query() && !is_admin() && ( is_post_type_archive( 'portfolio' ) || is_tax( array( 'portfolio_category', 'portfolio_tag' ) ) ) ) {
+		$query->set( 'orderby', 'menu_order' );
+		$query->set( 'order', 'ASC' );
+	}
+}
+add_action( 'pre_get_posts', 'be_portfolio_query' );
+
+
+/**
+ * Remove Genesis widgets.
+ *
+ * @since 1.0.0
+ */
+function ea_remove_genesis_widgets() {
+    unregister_widget( 'Genesis_Featured_Page' );
+    unregister_widget( 'Genesis_Featured_Post' );
+    unregister_widget( 'Genesis_User_Profile_Widget' );
+}
+add_action( 'widgets_init', 'ea_remove_genesis_widgets', 20 );

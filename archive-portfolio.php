@@ -10,18 +10,18 @@
  */
 function be_portfolio_post_class( $classes ) {
 
-	global $wp_query;
-	if( !$wp_query->is_main_query() )
-		return $classes;
+  global $wp_query;
+  if( !$wp_query->is_main_query() )
+    return $classes;
 
-	$columns = 3;
+  $columns = 3;
 
-	$column_classes = array( '', '', 'one-half', 'one-third', 'one-fourth', 'one-fifth', 'one-sixth' );
-	$classes[] = $column_classes[$columns];
-	if( 0 == $wp_query->current_post || 0 == $wp_query->current_post % $columns )
-		$classes[] = 'first';
+  $column_classes = array( '', '', 'one-half', 'one-third', 'one-fourth', 'one-fifth', 'one-sixth' );
+  $classes[] = $column_classes[$columns];
+  if( 0 == $wp_query->current_post || 0 == $wp_query->current_post % $columns )
+    $classes[] = 'first';
 
-	return $classes;
+  return $classes;
 }
 add_filter( 'post_class', 'be_portfolio_post_class' );
 
@@ -37,7 +37,7 @@ remove_action( 'genesis_entry_footer', 'genesis_entry_footer_markup_close', 15 )
  *
  */
 function be_portfolio_image() {
-	echo wpautop( '<a href="' . get_permalink() . '">' . genesis_get_image( array( 'size' => 'medium' ) ). '</a>' );
+  echo wpautop( '<a href="' . get_permalink() . '">' . genesis_get_image( array( 'size' => 'large' ) ). '</a>' );
 }
 add_action( 'genesis_entry_content', 'be_portfolio_image' );
 add_filter( 'genesis_pre_get_option_content_archive_thumbnail', '__return_false' );
