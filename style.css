@@ -712,6 +712,10 @@ th {
 	font-size: 36px;
 }
 
+.home .entry-title {
+  visibility: hidden;
+}
+
 .entry-title a,
 .sidebar .widget-title a {
 	color: #333;
@@ -1810,7 +1814,7 @@ Font Awesome Secondary Menu
   }
 
   .sub-menu li {
-    margin-top: 45px;
+    margin-top: 44px;
     border-right: none;
     padding: 0;
     float: left;
@@ -1879,20 +1883,6 @@ Font Awesome Secondary Menu
     padding: 0.45em 0 0.45em 0.7em;
   }
 
-  /*.genesis-nav-menu li {
-    border-right: 1px solid #ccc;
-    padding: 15px 7px 15px 30px;
-  }*/
-
-  .sub-menu li {
-    margin-top: 45px;
-    border-right: none;
-    padding: 0;
-    clear:left;
-  }
-    .sub-menu li:first-child{
-      margin-top:39px;
-    }
 
   /*========================== portfolio ============================*/
 
