@@ -56,6 +56,11 @@ function my_title_comments()
 
 remove_action( 'genesis_entry_header', 'genesis_post_info', 12 );
 
+# resize attachment page image to large
+add_filter('prepend_attachment', 'ag_prepend_attachment');
+function ag_prepend_attachment($p) {
+    return '<p class="attachment">'.wp_get_attachment_link(0, 'large', false).'</p>';
+}
 
 // Enqueue home.js script
 //add_action( 'wp_enqueue_scripts', 'home' );

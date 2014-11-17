@@ -1168,6 +1168,15 @@ img.alignright,
   color: #ddd;
 }
 
+/*==========================================================================
+   Slider RoyalSlider
+   Author
+  ========================================================================*/
+.royalSlider {
+  margin-bottom: 5em;
+}
+
+
 /* ## Entry Meta
 --------------------------------------------- */
 
@@ -1345,9 +1354,9 @@ li.comment {
   visibility: hidden;
 }
 
-article.type-portfolio {
+/*article.type-portfolio {
   padding: 40px 30px;
-}
+}*/
 
 
 /* # Footer Widgets
@@ -1824,10 +1833,19 @@ Font Awesome Secondary Menu
       margin-top:39px;
     }
 
+
+
     .genesis-nav-menu .sub-menu a:hover {
       font-size: 14px;
       color: #3399ff;
     }
+
+    .sub-menu .menu-item:before {
+      top:7px;
+      left:17px;
+      z-index:99;
+    }
+
 }
 
 @media only screen and (min-width: 801px) {
@@ -1882,6 +1900,12 @@ Font Awesome Secondary Menu
     margin: 0;
     padding: 0.45em 0 0.45em 0.7em;
   }
+
+    .sub-menu .menu-item:before {
+      top:7px;
+      left:17px;
+      z-index:99;
+    }
 
 
   /*========================== portfolio ============================*/
@@ -1939,10 +1963,23 @@ Font Awesome Secondary Menu
     width: 400px;
   }
 
+   .sub-menu .menu-item:before {
+      top:7px;
+      left:17px;
+      z-index:99;
+    }
+
+
+
+
   /*==================== portfolio images ===================*/
 
   .type-portfolio img {
     height: 100px;
+  }
+
+  .attachment img {
+
   }
 
 }
