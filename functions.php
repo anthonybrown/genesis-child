@@ -12,7 +12,7 @@ add_action( 'wp_enqueue_scripts', 'genesis_sample_google_fonts' );
 
 function genesis_sample_google_fonts()
 {
-  wp_enqueue_style( 'google-fonts', '//fonts.googleapis.com/css?family=Lato:700|Raleway:300,900', array(), CHILD_THEME_VERSION );
+  wp_enqueue_style( 'google-fonts', '//fonts.googleapis.com/css?family=Lato:700|Raleway:300,700', array(), CHILD_THEME_VERSION );
 }
 
 //* Add HTML5 markup structure
@@ -29,14 +29,6 @@ add_theme_support( 'genesis-footer-widgets', 3 );
 
 //* add superfish menu
 #add_filter( 'genesis_superfish_enabled', '__return_true' );
-
-#remove_action('genesis_entry_header', 'genesis_post_info', 12);
-#add_action('genesis_entry_header', 'my_custom_function', 9);
-
-#function my_custom_function ()
-#{
-#  echo 'Howdy!';
-#}
 
 //* remove post meta from footer
 remove_action( 'genesis_entry_footer', 'genesis_post_meta' );
